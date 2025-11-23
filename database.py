@@ -10,7 +10,6 @@ USER = os.getenv("POSTGRES_USER")
 PASSWORD = os.getenv("POSTGRES_PASSWORD")
 DATABASE = os.getenv("POSTGRES_DB")
 
-# SQLALCHEMY_DATABASE_URL = 'postgresql://cameron:supersecretpassword@localhost:5432/postgres_data'
 SQLALCHEMY_DATABASE_URL = f"postgresql://{USER}:{PASSWORD}@localhost:5432/{DATABASE}"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
@@ -25,3 +24,6 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+# Oh what folly the sins of man
